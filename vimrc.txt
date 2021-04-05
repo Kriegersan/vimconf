@@ -1,4 +1,4 @@
-"llan MacGregor Vimrc configuration 
+"Keith's  Vimrc configuration 
 """""""""""""""""""""""""""""""""""""
 set nocompatible
 syntax on
@@ -55,22 +55,14 @@ Plugin 'LanguageTool'
 Plugin 'kablamo/vim-git-log'
 Plugin 'gregsexton/gitv'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'jaxbot/github-issues.vim'
 
 " PHP Support
 Plugin 'phpvim/phpcd.vim'
 Plugin 'tobyS/pdv'
 
-" Erlang Support
-Plugin 'vim-erlang/vim-erlang-tags'
-Plugin 'vim-erlang/vim-erlang-runtime'
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-Plugin 'vim-erlang/vim-erlang-compiler'
-
 " Elixir Support 
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'avdgaag/vim-phoenix'
-Plugin 'mmorearty/elixir-ctags'
 Plugin 'mattreduce/vim-mix'
 Plugin 'BjRo/vim-extest'
 Plugin 'frost/vim-eh-docs'
@@ -127,8 +119,6 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
-" Enable Elite mode, No ARRRROWWS!!!!
-let g:elite_mode=1
 
 " Enable highlighting of the current line
 set cursorline
@@ -163,9 +153,6 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_elixir_checker = 1
-" let g:syntastic_elixir_checkers = ["elixir"]
 
 " Neomake settings
 autocmd! BufWritePost * Neomake
@@ -183,9 +170,6 @@ augroup END
 " Github Issues Configuration
 let g:github_access_token = "e6fb845bd306a3ca7f086cef82732d1d5d9ac8e0"
 
-" Vim-Alchemist Configuration
-let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
-let g:alchemist_tag_disable = 1
 
 " Vim-Supertab Configuration
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -236,11 +220,6 @@ function! s:my_cr_function()
   "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
 
 
 " Enable omni completion.
@@ -254,32 +233,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" Elixir Tagbar Configuration
-let g:tagbar_type_elixir = {
-    \ 'ctagstype' : 'elixir',
-    \ 'kinds' : [
-        \ 'f:functions',
-        \ 'functions:functions',
-        \ 'c:callbacks',
-        \ 'd:delegates',
-        \ 'e:exceptions',
-        \ 'i:implementations',
-        \ 'a:macros',
-        \ 'o:operators',
-        \ 'm:modules',
-        \ 'p:protocols',
-        \ 'r:records',
-        \ 't:tests'
-    \ ]
-    \ }
 
 " Fzf Configuration
 " This is the default extra key bindings
