@@ -35,7 +35,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-dispatch'
 
 " Generic Programming Support 
-Plugin 'jakedouglas/exuberant-ctags'
 Plugin 'honza/vim-snippets'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tomtom/tcomment_vim'
@@ -44,7 +43,9 @@ Plugin 'janko-m/vim-test'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'neomake/neomake'
-
+Plugin 'Yggdroot/indentLine'
+Plugin 'dense-analysis/ale'
+Plugin 'pedrohdz/vim-yaml-folds'
 " Markdown / Writting
 Plugin 'reedes/vim-pencil'
 Plugin 'tpope/vim-markdown'
@@ -91,12 +92,10 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'AlessandroYorba/Sierra'
 Plugin 'daylerees/colour-schemes'
 Plugin 'effkay/argonaut.vim'
-Plugin 'ajh17/Spacegray.vim'
 Plugin 'atelierbram/Base2Tone-vim'
 Plugin 'colepeters/spacemacs-theme.vim'
+Plugin 'Rigellute/shades-of-purple.vim'
 
-" OSX stupid backspace fix
-set backspace=indent,eol,start
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -132,7 +131,7 @@ if (has("termguicolors"))
 endif
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme spacegray
+colorscheme shades_of_purple
 " colorscheme spacemacs-theme
 
 let g:spacegray_underline_search = 1
@@ -340,4 +339,12 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 
 " Vim-Alchemist Mappings
 autocmd FileType elixir nnoremap <buffer> <leader>h :call alchemist#exdoc()<CR>
-autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>
+autocmd FileType elixir nnoremap <buffer> <leader>d :call alchemist#exdef()<CR>i
+
+" Vim-yaml 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+set foldlevelstart=20
+let g:ale_echo_msg_format ='[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
